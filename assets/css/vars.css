@@ -1,0 +1,73 @@
+/* ==========================================================
+   Ghost 6+ CSS Variables (Required by GScan)
+   ========================================================== */
+:root {
+    /* Ghost Core Variables - Wajib ada */
+       
+    --gh-font-heading: 'Fira Code', sans-serif;
+    --gh-font-body: 'Fira Sans', sans-serif;
+    --ghost-accent-color: #3eb0ef;
+    --ghost-button-text: #ffffff;
+
+    /* Color System */
+    --color-primary: var(--ghost-accent-color);
+    --color-base: #131313;
+    --color-border: #ddd;
+    --color-bg: #f5f5f5;
+    --color-success: #80b912;
+    --color-error: #f05230;
+    --color-white: #ffffff;
+    --color-darkgrey: #15171a;
+
+    /* Typography */
+    --font-sans-serif: var(--gh-font-body);
+    --font-serif: Georgia, Times, serif;
+    --font-mono: Menlo, Courier, monospace;
+    --font-weight-light: 300;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-bold: 700;
+    
+    /* Font Sizes */
+    --font-size-xs: 1.2rem;
+    --font-size-s: 1.4rem;
+    --font-size-m: 1.6rem;
+    --font-size-l: 1.8rem;
+    --font-size-xl: 2rem;
+    --font-size-xxl: 2.8rem;
+
+    /* Spacing */
+    --spacing-xs: 0.8rem;
+    --spacing-s: 1.6rem;
+    --spacing-m: 2.4rem;
+    --spacing-l: 3.2rem;
+    --spacing-xl: 4.8rem;
+
+    /* Breakpoints */
+    --breakpoint-mobile: 480px;
+    --breakpoint-tablet: 740px;
+    --breakpoint-desktop: 980px;
+    --breakpoint-wide: 1280px;
+    --breakpoint-hd: 1680px;
+
+    /* Components */
+    --header-height: 80px;
+    --border-radius: 0.5rem;
+    --box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    --transition: all 0.3s ease;
+
+    /* Post Card Specific */
+    --card-bg: #ffffff;
+    --card-spacing: var(--spacing-m);
+    --card-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+/* Dark Mode Variables (Opsional) */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-base: #f5f5f5;
+        --color-bg: #131313;
+        --color-border: #333;
+        --card-bg: #1e1e1e;
+    }
+}

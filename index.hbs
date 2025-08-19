@@ -1,0 +1,25 @@
+{{!< default}}
+
+{{!-- Filter Dropdown --}}
+<section class="content-header">
+    <div class="content-filter">
+        <label for="feed-filter">Sort by:</label>
+        <select id="feed-filter">
+            <option value="most-read">Most Read</option>
+            <option value="random">Random</option>
+        </select>
+    </div>
+</section>
+
+<div class="gh-postfeed">
+    {{#foreach posts}}
+        {{> "card" page=../pagination.page }}
+    {{/foreach}}
+</div>
+
+{{!-- Pagination fallback --}}
+<noscript>
+    <div class="gh-pagination">
+        {{pagination}}
+    </div>
+</noscript>

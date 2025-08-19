@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import 'vars.css';
+/* =========================================================
+   GLOBAL STYLES & LAYOUT
+   ========================================================= */
+
+/* Container utama untuk memusatkan konten */
+.gh-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px; /* Padding samping untuk menjaga jarak dari tepi layar */
+}
+
+/* Flexbox untuk main content */
+.gh-main {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+/* =========================================================
+   HEADER STYLES
+   ========================================================= */
+.gh-head.imgur-header {
+    background: #1a1a1b;
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.gh-head.imgur-header .gh-head-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    gap: 20px;
+}
+
+/* =========================================================
+   MAIN CONTENT GRID
+   ========================================================= */
+
+/* Post Feed - Grid Layout */
+.gh-postfeed {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; /* Jarak antar kartu */
+}
+
+/* Tentukan lebar kartu */
+.gh-postfeed .gh-card {
+    flex: 1 1 280px; /* Lebar minimum 280px, akan meregang untuk mengisi ruang */
+}
+
+body.gh-theme-imgur .gh-postfeed {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 kolom untuk desktop */
+    gap: 20px;
+    padding: 20px 0;
+}
+
+/* Gaya dasar kartu post */
+.gh-card {
+    border-radius: 1px;
+    overflow: hidden;
+}
+
+.gh-card-link {
+    display: flex;
+    flex-direction: column;
+    color: inherit;
+    text-decoration: none;
+}
+
+.gh-card-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;    
+}
+
+.gh-card-content {
+    padding: 15px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.gh-card-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin: 0;
+    font-family: var(--gh-font-heading);
+}
+
+/* =========================================================
+   TAGS SECTION (IMGUR-LIKE)
+   ========================================================= */
+.imgur-tags-section {
+    max-width: 1100px;
+    margin: 20px auto 10px;
+    padding: 0 20px;
+}
+
+.imgur-tags-grid-wrapper {
+    display: grid;
+    /* Gunakan grid yang terpisah dari post feed */
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+}
+
+/* Gaya kartu tag */
+.imgur-tag-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    height: 120px;
+    text-decoration: none;
+    transition: transform 0.2s ease-in-out;
+}
+
+/* ===== RESPONSIF ===== */
+@media (max-width: 768px) {
+        .gh-container {
+        padding: 0 10px;
+    }
+    .imgur-tags-grid-wrapper {
+        gap: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    body.gh-theme-imgur .gh-postfeed {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+}
+
+/* Aturan untuk logo agar kembali normal */
+.gh-head.imgur-header .gh-head-logo img {
+  height: auto;
+  width: auto;
+  max-height: 40px;
+}
+
+/* Aturan untuk tombol dan teks 'Sign In' yang terpengaruh */
+.gh-head.imgur-header .gh-head-actions a {
+    color: #fff;
+    background: #4A4A4A;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 1.4rem;
+}
+
+/* Jika "MORE TAGS" terpengaruh, pastikan aturannya spesifik */
+.imgur-tags-section .imgur-controls .gh-button {
+    color: #f0f0f0;
+    font-size: 1.4rem;
+    background: transparent;
+    border: 1px solid #555;
+}
+
+/* Aturan untuk tulisan "Tomorrow" jika terpengaruh */
+.gh-head-logo {
+    font-family: var(--gh-font-heading, sans-serif);
+    font-size: 2.2rem;
+    font-weight: 600;
+}
+
+.gh-card-meta time {
+    font-family: var(--gh-font-body);
+}

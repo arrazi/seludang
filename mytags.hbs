@@ -1,0 +1,25 @@
+{{!< default}}
+
+<main class="gh-main">
+    <div class="gh-container">
+        <header class="gh-header">
+            <h1 class="gh-header-title">Semua Tags</h1>
+        </header>
+
+        {{!-- All tags will be listed here --}}
+        <div class="imgur-tags-grid">
+            {{#foreach tags}}
+                <a href="{{url}}" class="imgur-tag-card" style="background-color: {{accent_color}};">
+                    {{#if feature_image}}
+                        <div class="imgur-tag-bg" style="background-image: url({{feature_image}});"></div>
+                    {{/if}}
+                    <div class="imgur-tag-overlay"></div>
+                    <div class="imgur-tag-content">
+                        <h3>{{name}}</h3>
+                        <p>{{count.posts}} Posts</p>
+                    </div>
+                </a>
+            {{/foreach}}
+        </div>
+    </div>
+</main>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="{{@site.locale}}">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{meta_title}}</title>
+    {{ghost_head}}
+
+    {{!-- Styles --}}
+    <link rel="stylesheet" href="{{asset 'built/index.css'}}">
+    <link rel="stylesheet" href="{{asset 'css/custom-header.css'}}">
+    <link rel="stylesheet" href="{{asset 'css/custom-tags.css'}}">
+    <script>
+       const key = '8177d630d697e3b0c29c2ae82f';
+       const url = '{{@site.url}}';
+       window.apiUrl = `${url}/ghost/api/content/posts/?key=${key}`;
+   </script>
+</head>
+
+<body class="{{body_class}} gh-theme-imgur">
+    <div class="gh-viewport">
+
+        {{!-- ================= HEADER ================= --}}
+        <header id="gh-head" class="gh-head imgur-header" role="banner">
+            <nav class="gh-head-inner gh-container" aria-label="Primary">
+                <div class="gh-head-logo-container">
+                    <a class="gh-head-logo" href="{{@site.url}}" aria-label="{{@site.title}}">
+                        {{#if @site.logo}}
+                        <img src="{{@site.logo}}" alt="{{@site.title}}">
+                        {{else}}
+                        {{@site.title}}
+                        {{/if}}
+                    </a>
+                </div>
+
+                <div class="gh-head-menu">
+                    {{navigation}}
+                </div>
+
+                <div class="imgur-search-container">
+                    <div class="imgur-search">
+                        <form action="/search/" method="get" role="search" aria-label="Site search">
+                            <input type="search" name="q" placeholder="Cari berita, gambar, tags..."
+                                aria-label="Search posts">
+                        </form>
+                    </div>
+                </div>
+
+                <div class="gh-head-actions">
+                    {{#if @member}}
+                    <a class="gh-button imgur-auth-btn" href="#/portal/account" aria-label="Account">Account</a>
+                    {{else}}
+                    <a class="gh-button imgur-auth-btn" href="/signin/" aria-label="Sign In">Sign In</a>
+                    {{/if}}
+                </div>
+            </nav>
+        </header>
+
+        {{!-- ================= TAGS SECTION ================= --}}
+        {{#is "home"}}
+        <main class="gh-main" id="main-content">
+            <div class="gh-container">
+                <section class="imgur-tags-section">
+                    <div class="imgur-tags-header" id="imgur-tags-header">
+                        <h2 class="imgur-hero-title">The news of tomorrow, today.</h2>
+                        <div class="imgur-controls">
+                            <select class="imgur-tags-sort" id="imgur-tags-sort">
+                                <option value="posts" selected>Most read</option>
+                                <option value="random">Random</option>
+                            </select>
+                            <a href="#more-tags" class="imgur-more-tags" id="imgur-more-tags">MORE TAGS +</a>
+                        </div>
+                    </div>
+                    <div class="imgur-tags-grid" id="imgur-tags-grid">
+                        {{#get "tags" limit="all" include="count.posts" order="count.posts desc"}}
+                        {{#foreach tags}}
+                        <a href="{{url}}" class="imgur-tag-card" style="background-color: {{accent_color}};">
+                            {{#if feature_image}}
+                            <div class="imgur-tag-bg" style="background-image: url({{feature_image}});"></div>
+                            {{/if}}
+                            <div class="imgur-tag-overlay"></div>
+                            <div class="imgur-tag-content">
+                                <h3>{{name}}</h3>
+                                <p>{{count.posts}} Posts</p>
+                            </div>
+                        </a>
+                        {{/foreach}}
+                        {{/get}}
+                    </div>
+                </section>
+                {{{body}}}
+            </div>
+        </main>
+        {{else}}
+        <main class="gh-main" id="main-content">
+            <div class="gh-container">
+                {{{body}}}
+            </div>
+        </main>
+        {{/is}}
+        
+        {{!-- ================= FOOTER ================= --}}
+        <footer class="gh-foot" role="contentinfo">
+            <div class="gh-container">
+                <div class="gh-foot-menu">
+                    {{navigation type="secondary"}}
+                </div>
+                <div class="gh-foot-meta">
+                    Published with <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    {{ghost_foot}}
+    <script src="{{asset 'js/tag-cards.js'}}"></script>
+    <script src="{{asset 'js/sort-filter.js'}}"></script>
+</body>
+</html>

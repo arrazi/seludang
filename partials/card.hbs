@@ -1,0 +1,22 @@
+{{!--
+    This is a card to be used in a grid of posts.
+    It can be configured to show different metadata, images, etc.
+    It's also a good example of how to make a component out of a partial.
+--}}
+<article class="gh-card">
+    <a class="gh-card-link" href="{{url}}">
+        <img class="gh-card-image"
+            srcset="{{feature_image}}"
+            sizes="(min-width: 900px) 400px, (min-width: 600px) 300px, 100vw"
+            src="{{feature_image}}"
+            alt="{{title}}"
+            loading="lazy"
+        />
+        <div class="gh-card-content">
+            <h2 class="gh-card-title">{{title}}</h2>
+            <div class="gh-card-meta">
+                <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="MMMM D, YYYY"}}</time>
+            </div>
+        </div>
+    </a>
+</article>

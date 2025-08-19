@@ -1,0 +1,197 @@
+/* Section wrapper */
+.imgur-tags-section {
+    max-width: 1180px;
+    margin: 28px auto 10px;
+    padding: 0 24px;
+    box-sizing: border-box;
+}
+
+/* Header container */
+.imgur-tags-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin: 0 0 14px;
+}
+
+/* Title styling */
+.imgur-tags-header h2 {
+    margin: 0;
+    font-size: 1.85rem;
+    font-weight: 800;
+    line-height: 1.2;
+    color: #545151;
+    font-family: var(--gh-font-heading);
+}
+
+/* Controls container */
+.imgur-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.imgur-tags-sort {
+    background: transparent;
+    border: 1px solid #555;
+    color: #888;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.imgur-more-tags {
+    color: #45CE30;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.2px;
+    text-decoration: none;
+    font-family: var(--gh-font-body);
+}
+
+.imgur-more-tags:hover {
+    text-decoration: underline;
+}
+
+/* === BARIS TAG (Scroll Horizontal) === */
+.imgur-tags-grid {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 1.5rem;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding-bottom: 2rem;
+}
+
+.imgur-tags-grid::-webkit-scrollbar {
+    display: none;
+}
+
+/* Default tag card size */
+.imgur-tag-card {
+    flex: 0 0 180px;
+    height: 140px;
+    border-radius: 3px;
+    overflow: hidden;
+    background: #666;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    color: #fff;
+    text-decoration: none;
+    box-shadow: none;
+    transition: transform 0.2s ease-in-out;
+}
+
+/* Wider cards for first two items */
+.imgur-tag-card:nth-child(1),
+.imgur-tag-card:nth-child(2) {
+    flex: 0 0 280px;
+}
+
+/* Background */
+.imgur-tag-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    filter: saturate(1.05);
+    z-index: 1;
+}
+
+/* Overlay: gradient + hue accent di dasar */
+.imgur-tag-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.0) 40%, rgba(0, 0, 0, 0.45) 72%, var(--accent, rgba(0, 0, 0, 0.6)) 100%);
+}
+
+/* Konten */
+.imgur-tag-content {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    padding: 10px 12px;
+}
+
+.imgur-tag-content h3 {
+    margin: 0 0 6px;
+    font-size: 1.02rem;
+    font-weight: 800;
+    letter-spacing: 0.2px;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
+    font-family: var(--gh-font-heading);
+}
+
+.imgur-tag-content p {
+    margin: 0;
+    font-size: 0.85rem;
+    opacity: 0.95;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+    font-family: var(--gh-font-body);
+}
+
+/* Hover */
+.imgur-tag-card:hover {
+    transform: translateY(-4px);
+    box-shadow: none;
+}
+
+
+@media (max-width: 1100px) {
+    .imgur-tag-card {
+        flex-basis: 200px;
+    }
+
+    .imgur-tag-card:nth-child(1),
+    .imgur-tag-card:nth-child(2) {
+        flex-basis: calc(50% - 8px);
+    }
+}
+
+@media (max-width: 740px) {
+    .imgur-tags-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .imgur-tag-card {
+        flex-basis: calc(50% - 8px);
+    }
+    
+    .imgur-tag-card:nth-child(1),
+    .imgur-tag-card:nth-child(2) {
+        flex-basis: 100%;
+    }
+}
+
+/* Kelas untuk status expand */
+.imgur-tags-grid.expanded {
+    flex-wrap: wrap;
+    overflow-x: visible;
+    padding-bottom: 0;
+}
+
+.imgur-tags-header.expanded .imgur-more-tags {
+    text-decoration: none;
+}
+
+.imgur-tags-header.expanded .imgur-more-tags:hover {
+    text-decoration: underline;
+}
+
+/* Sembunyikan dropdown "Most read" */
+#imgur-tags-sort {
+    display: none !important;
+}
+

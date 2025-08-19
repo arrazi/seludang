@@ -1,0 +1,182 @@
+/* ==========================================================
+   GLOBAL RESET & BASE STYLES (Ghost 6+ Compatible)
+   ========================================================== */
+
+/* Reset & Box Sizing */
+/* ---------------------------------------------------------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
+}
+
+/* Base Body Styles */
+/* ---------------------------------------------------------- */
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    color: var(--color-base, #131313);
+    font-family: var(--gh-font-body, var(--font-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", sans-serif));
+    font-size: var(--font-size-m, 1.6rem);
+    line-height: 1.6;
+    font-weight: var(--font-weight-normal, 400);
+    background: var(--color-bg, #ffffff);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography System */
+/* ---------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    line-height: 1.15;
+    font-family: var(--gh-font-heading, var(--font-sans-serif));
+    font-weight: var(--font-weight-bold, 700);
+    color: var(--color-darkgrey, #15171a);
+}
+
+h1 {
+    font-size: var(--font-size-xxl, 4.6rem);
+    letter-spacing: -0.5px;
+}
+
+h2 { font-size: var(--font-size-xl, 3.6rem); }
+h3 { font-size: var(--font-size-l, 3.2rem); }
+h4 { font-size: var(--font-size-m, 2.6rem); }
+h5 { font-size: var(--font-size-m, 2.4rem); }
+h6 { font-size: var(--font-size-m, 2.2rem); }
+
+@media (max-width: 500px) {
+    h1 { font-size: var(--font-size-xl, 2.7rem); }
+    h2 { font-size: var(--font-size-l, 2.2rem); }
+    h3 { font-size: var(--font-size-m, 1.8rem); }
+}
+
+/* Text Elements */
+/* ---------------------------------------------------------- */
+p,
+ul,
+ol,
+li,
+dl,
+dd,
+hr,
+pre,
+form,
+table,
+video,
+figure,
+figcaption,
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+
+ul:not([class]) li + li {
+    margin-top: var(--spacing-xs, 0.6em);
+}
+
+a:not([class]) {
+    color: var(--color-primary);
+    text-decoration-skip-ink: auto;
+    transition: color 0.2s ease;
+}
+
+a[class] {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+/* Lists & Media */
+/* ---------------------------------------------------------- */
+ul[class],
+ol[class] {
+    padding: 0;
+    list-style: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Forms & Interactive */
+/* ---------------------------------------------------------- */
+input,
+button,
+select,
+textarea {
+    font: inherit;
+    -webkit-appearance: none;
+}
+
+fieldset {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+label {
+    display: block;
+    font-size: var(--font-size-xs, 0.9em);
+    font-weight: var(--font-weight-bold, 700);
+}
+
+/* Utility Styles */
+/* ---------------------------------------------------------- */
+hr {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid currentcolor;
+    opacity: 0.2;
+}
+
+::selection {
+    background: var(--color-primary-light, #cbeafb);
+    text-shadow: none;
+}
+
+mark {
+    background-color: var(--color-highlight, #fdffb6);
+}
+
+/* Accessibility */
+/* ---------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Dark Mode */
+/* ---------------------------------------------------------- */
+@media (prefers-color-scheme: dark) {
+    body {
+        color: var(--color-base, #f5f5f5);
+        background: var(--color-bg, #131313);
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        color: var(--color-white, #ffffff);
+    }
+    
+    ::selection {
+        background: var(--color-primary);
+        color: var(--color-white);
+    }
+}
